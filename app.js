@@ -15,7 +15,7 @@ multiplier: 20,
 let autoUpgrades = [
     {
     name: 'avMatoran',
-    price: 800,
+    price: 8,
     quantity: 0,
     multiplier: 1
     }, {
@@ -26,7 +26,7 @@ let autoUpgrades = [
     }
 ]
 
-
+// SECTION Draw functions
 function drawWidgets(){
 let WidgetTemp = ''
 WidgetTemp += ` <h1> WIDGETS: ${widgets} </h1> `
@@ -47,8 +47,8 @@ if (furn.quantity > 0) {
     drawWidgets()
 }
 
-// SECTION Upgrades
 
+// SECTION Upgrades
 function buyForgeHammer(){
     let hammer = clickUpgrades[1]
     if (widgets >= hammer.price) {
@@ -66,3 +66,49 @@ function buyFurnace(){
     }
 }
 
+function buyMatoran(){
+    let mat = autoUpgrades[1]
+    if (widgets >= mat.price) {
+        mat.quantity++
+        widgets -= mat.price
+        mat.multiplier++
+        mat.price += 200
+    console.log('matoran worked')
+    }
+    drawWidgets()
+}
+
+function matoranInt(){
+    let mat = autoUpgrades[1]
+    if (mat.quantity > 0) {
+        widgets += 10*mat.multiplier
+        console.log('interval be intervaling')
+    }
+    drawWidgets()
+}
+
+function buyAvMatoran(){
+    let av = autoUpgrades[0]
+if (widgets >= av.price) {
+    av.quantity++
+    widgets -= av.price
+    av.multiplier++
+    av.price += 1000
+    console.log('av worked');
+}
+drawWidgets()
+}
+
+function avInt(){
+    let av = autoUpgrades[0]
+    if (av.quantity > 0) {
+        widgets += 100*av.multiplier
+        console.log('av interval is also intervaling');
+    }
+    drawWidgets()
+}
+
+
+// SECTION Intervals
+setInterval(avInt, 5000)
+setInterval(matoranInt, 3000)
