@@ -2,12 +2,12 @@ let widgets = 0
 let clickUpgrades = [
     {
 name: 'furnace',
-price: 800,
+price: 8,
 quantity: 0,
-multiplier: 1
+multiplier: 20,
 }, {
     name: 'forgeHammer',
-    price: 200,
+    price: 100,
     quantity: 0,
     multiplier: 1
 }
@@ -20,7 +20,7 @@ let autoUpgrades = [
     multiplier: 1
     }, {
     name: 'matoran',
-    price: 400,
+    price: 4,
     quantity: 0,
     multiplier: 1
     }
@@ -34,17 +34,35 @@ document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
 
 function clickCounter(){
+    let hammer = clickUpgrades[1]
+    let furn = clickUpgrades[0]
+if (hammer.quantity > 0) {
+    widgets += hammer.multiplier
+} else {
     widgets++
-    // console.log('and suddenly, it clicked!')
+}
+if (furn.quantity > 0) {
+    widgets += furn.multiplier
+}
     drawWidgets()
 }
 
-function furnace(){
+// SECTION Upgrades
 
+function buyForgeHammer(){
+    let hammer = clickUpgrades[1]
+    if (widgets >= hammer.price) {
+        hammer.quantity++
+        hammer.multiplier++
+// console.log('worked')
+    }
+}
+function buyFurnace(){
+    let furn = clickUpgrades[0]
+    if (widgets >= furn.price) {
+        furn.quantity++
+        furn.multiplier += 10
+// console.log('worked')
+    }
 }
 
-
-
-function MatoranOne(){
-    
-}
