@@ -1,0 +1,38 @@
+body{
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;;
+}
+
+footer{
+    margin-top: auto;
+}
+
+.ekemu{
+cursor: pointer;
+min-height: 30vh;
+min-height: 30vw;
+/* margin-top: 7em; */
+}
+
+.lower-chunk{
+    min-height: 100%;
+    min-width: 95%;
+}
+
+.header-card{
+    background-color: #794b1e;
+    border: 5px solid #72631a;
+    border-radius: 5px;
+}
+.header-card2{
+    background-color: #794b1e;
+    border-top: 5px solid #72631a;
+    border-right: 5px solid #72631a;
+    border-left: 5px solid #72631a;
+}
+
+.font-work-pls{
+    font-family: 'Goudy Bookletter 1911', serif;
+}
