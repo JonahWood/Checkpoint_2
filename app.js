@@ -84,7 +84,6 @@ function buyForgeHammer(){
     if (widgets >= hammer.price) {
         hammer.quantity++
         hammer.multiplier++
-// console.log('worked')
     } else {
         window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
@@ -95,7 +94,6 @@ function buyFurnace(){
     if (widgets >= furn.price) {
         furn.quantity++
         furn.multiplier += 10
-// console.log('worked')
     } else {
         window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
@@ -108,7 +106,6 @@ function buyMatoran(){
         widgets -= mat.price
         mat.multiplier++
         mat.price += 200
-    console.log('matoran worked')
     } else {
         window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
@@ -122,7 +119,6 @@ function buyAvMatoran(){
         widgets -= av.price
         av.multiplier++
         av.price += 1000
-        console.log('av worked');
     } else {
         window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
@@ -133,7 +129,6 @@ function matoranInt(){
     let mat = autoUpgrades[1]
     if (mat.quantity > 0) {
         widgets += 10*mat.multiplier
-        console.log('interval be intervaling')
     }
     drawWidgets()
 }
@@ -142,7 +137,6 @@ function avInt(){
     let av = autoUpgrades[0]
     if (av.quantity > 0) {
         widgets += 100*av.multiplier
-        console.log('av interval is also intervaling');
     }
     drawWidgets()
 }
