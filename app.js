@@ -2,7 +2,7 @@ let widgets = 0
 let clickUpgrades = [
     {
 name: 'furnace',
-price: 8,
+price: 200,
 quantity: 0,
 multiplier: 20,
 }, {
@@ -15,16 +15,33 @@ multiplier: 20,
 let autoUpgrades = [
     {
     name: 'avMatoran',
-    price: 8,
+    price: 1000,
     quantity: 0,
     multiplier: 1
     }, {
     name: 'matoran',
-    price: 4,
+    price: 500,
     quantity: 0,
     multiplier: 1
     }
 ]
+
+
+// SECTION Click Counter
+function clickCounter(){
+    let hammer = clickUpgrades[1]
+    let furn = clickUpgrades[0]
+    if (hammer.quantity > 0) {
+        widgets += hammer.multiplier
+    } else {
+        widgets++
+    }
+    if (furn.quantity > 0) {
+        widgets += furn.multiplier
+}
+    drawWidgets()
+}
+
 
 // SECTION Draw functions
 function drawWidgets(){
@@ -33,20 +50,33 @@ WidgetTemp += ` <h1> WIDGETS: ${widgets} </h1> `
 document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
 
-function clickCounter(){
+function drawHammerUpgrade(){
     let hammer = clickUpgrades[1]
-    let furn = clickUpgrades[0]
-if (hammer.quantity > 0) {
-    widgets += hammer.multiplier
-} else {
-    widgets++
-}
-if (furn.quantity > 0) {
-    widgets += furn.multiplier
-}
-    drawWidgets()
+let hamTemp = ''
+hamTemp += `<h3>UPGRADE FORGEHAMMER <button class="font-work-pls button-mask text-success" onclick="buyForgeHammer()">${hammer.price} WIDGETS</button> </h3>`
+document.getElementById('hamTemp').innerHTML = hamTemp
 }
 
+function drawFurnaceUpgrade(){
+    let furn = clickUpgrades[0]
+let furnTemp = ''
+furnTemp += `<h3>UPGRADE FURNACE <button class="font-work-pls button-mask text-success" onclick="buyFurnace()">${furn.price} WIDGETS</button> </h3>`
+document.getElementById('furnTemp').innerHTML = furnTemp
+}
+
+function drawMatoran(){
+    let mat = autoUpgrades [1]
+    let matTemp = ''
+matTemp +=  `<h3>BUY MATORAN <button class="font-work-pls button-mask text-success" onclick="buyMatoran()">${mat.price} WIDGETS</button> </h3>`
+document.getElementById('matTemp').innerHTML = matTemp
+}
+
+function drawAv(){
+    let av = autoUpgrades [0]
+    let avTemp = ''
+avTemp +=  `<h3>BUY AV-MATORAN <button class="font-work-pls button-mask text-success" onclick="buyMatoran()">${av.price} WIDGETS</button> </h3>`
+document.getElementById('avTemp').innerHTML = avTemp
+}
 
 // SECTION Upgrades
 function buyForgeHammer(){
@@ -56,6 +86,7 @@ function buyForgeHammer(){
         hammer.multiplier++
 // console.log('worked')
     }
+    drawHammerUpgrade()
 }
 function buyFurnace(){
     let furn = clickUpgrades[0]
@@ -110,5 +141,12 @@ function avInt(){
 
 
 // SECTION Intervals
+function testInt(){
+    setInterval(drawHammerUpgrade, 500)
+    setInterval(drawFurnaceUpgrade, 500)
+    setInterval(drawMatoran, 500)
+    setInterval(drawAv, 500)
+}
+testInt()
 setInterval(avInt, 5000)
 setInterval(matoranInt, 3000)
