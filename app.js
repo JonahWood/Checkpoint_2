@@ -85,6 +85,8 @@ function buyForgeHammer(){
         hammer.quantity++
         hammer.multiplier++
 // console.log('worked')
+    } else {
+        window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
     drawHammerUpgrade()
 }
@@ -94,6 +96,8 @@ function buyFurnace(){
         furn.quantity++
         furn.multiplier += 10
 // console.log('worked')
+    } else {
+        window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
 }
 
@@ -105,6 +109,22 @@ function buyMatoran(){
         mat.multiplier++
         mat.price += 200
     console.log('matoran worked')
+    } else {
+        window.alert ("Look out Kolhii Head! You don't have enough widgets!")
+    }
+    drawWidgets()
+}
+
+function buyAvMatoran(){
+    let av = autoUpgrades[0]
+    if (widgets >= av.price) {
+        av.quantity++
+        widgets -= av.price
+        av.multiplier++
+        av.price += 1000
+        console.log('av worked');
+    } else {
+        window.alert ("Look out Kolhii Head! You don't have enough widgets!")
     }
     drawWidgets()
 }
@@ -116,18 +136,6 @@ function matoranInt(){
         console.log('interval be intervaling')
     }
     drawWidgets()
-}
-
-function buyAvMatoran(){
-    let av = autoUpgrades[0]
-if (widgets >= av.price) {
-    av.quantity++
-    widgets -= av.price
-    av.multiplier++
-    av.price += 1000
-    console.log('av worked');
-}
-drawWidgets()
 }
 
 function avInt(){
