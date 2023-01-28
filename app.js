@@ -17,7 +17,7 @@ let autoUpgrades = [
     name: 'avMatoran',
     price: 1000,
     quantity: 0,
-    multiplier: 1
+    multiplier: 5
     }, {
     name: 'matoran',
     price: 500,
