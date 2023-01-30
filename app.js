@@ -15,7 +15,7 @@ multiplier: 20,
 let autoUpgrades = [
     {
     name: 'avMatoran',
-    price: 500000,
+    price: 1000,
     quantity: 0,
     multiplier: 0
     }, {
@@ -46,7 +46,7 @@ function clickCounter(){
 // SECTION Draw functions
 function drawWidgets(){
 let WidgetTemp = ''
-WidgetTemp += `<h5>PER MASK SOLD: ${1 + (autoUpgrades[1].quantity + autoUpgrades[0].quantity*autoUpgrades[0].multiplier)}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${(autoUpgrades[0].quantity*100)+(autoUpgrades[1].quantity*5)}</h5>`
+WidgetTemp += `<h5>PER MASK SOLD: ${1 + (clickUpgrades[1].quantity + clickUpgrades[0].quantity*autoUpgrades[0].multiplier)}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${(autoUpgrades[0].quantity*100)+(autoUpgrades[1].quantity*5)}</h5>`
 document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
 
@@ -74,7 +74,7 @@ document.getElementById('matTemp').innerHTML = matTemp
 function drawAv(){
     let av = autoUpgrades [0]
     let avTemp = ''
-avTemp +=  `<h3>BUY AV-MATORAN <button class="font-work-pls button-mask text-success" onclick="buyMatoran()">${av.price} WIDGETS</button> </h3>`
+avTemp +=  `<h3>BUY AV-MATORAN <button class="font-work-pls button-mask text-success" onclick="buyAv()">${av.price} WIDGETS</button> </h3>`
 document.getElementById('avTemp').innerHTML = avTemp
 }
 
@@ -168,5 +168,5 @@ function testInt(){
     setInterval(drawAv, 500)
 }
 testInt()
-setInterval(avInt, 5000)
+setInterval(avInt, 3000)
 setInterval(matoranInt, 3000)
