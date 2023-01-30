@@ -1,4 +1,4 @@
-let widgets = 100000
+let widgets = 0
 let clickUpgrades = [
     {
 name: 'furnace',
@@ -53,28 +53,28 @@ document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 function drawHammerUpgrade(){
     let hammer = clickUpgrades[1]
 let hamTemp = ''
-hamTemp += `<h3>UPGRADE FORGEHAMMER <button class="font-work-pls button-mask text-success" onclick="buyForgeHammer()">${hammer.price} WIDGETS</button> </h3>`
+hamTemp += `<h3>UPGRADE FORGEHAMMER <button class="font-work-pls button-mask text-success" onclick="buyForgeHammer()">${hammer.price} WIDGETS</button></h3><h6>BOUGHT: ${hammer.quantity}</h6>`
 document.getElementById('hamTemp').innerHTML = hamTemp
 }
 
 function drawFurnaceUpgrade(){
     let furn = clickUpgrades[0]
 let furnTemp = ''
-furnTemp += `<h3>UPGRADE FURNACE <button class="font-work-pls button-mask text-success" onclick="buyFurnace()">${furn.price} WIDGETS</button> </h3>`
+furnTemp += `<h3>UPGRADE FURNACE <button class="font-work-pls button-mask text-success" onclick="buyFurnace()">${furn.price} WIDGETS</button></h3><h6>BOUGHT: ${furn.quantity}</h6> `
 document.getElementById('furnTemp').innerHTML = furnTemp
 }
 
 function drawMatoran(){
     let mat = autoUpgrades [1]
     let matTemp = ''
-matTemp +=  `<h3>BUY MATORAN <button class="font-work-pls button-mask text-success" onclick="buyMatoran()">${mat.price} WIDGETS</button> </h3>`
+matTemp +=  `<h3>BUY MATORAN <button class="font-work-pls button-mask text-success" onclick="buyMatoran()">${mat.price} WIDGETS</button></h3> <h6>BOUGHT: ${mat.quantity}</h6>`
 document.getElementById('matTemp').innerHTML = matTemp
 }
 
 function drawAv(){
     let av = autoUpgrades [0]
     let avTemp = ''
-avTemp +=  `<h3>BUY AV-MATORAN <button class="font-work-pls button-mask text-success" onclick="buyAv()">${av.price} WIDGETS</button> </h3>`
+avTemp +=  `<h3>BUY AV-MATORAN <button class="font-work-pls button-mask text-success" onclick="buyAvMatoran()">${av.price} WIDGETS</button></h3><h6>BOUGHT: ${av.quantity}</h6>`
 document.getElementById('avTemp').innerHTML = avTemp
 }
 
