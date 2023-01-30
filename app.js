@@ -49,9 +49,11 @@ let WidgetTemp = ''
 // FIXME the logic here is showing some data but not the correct data for all instances of the upgrades
 // Look to zoo keeper and how a paycheck is generated to get a more accurate figure, you want to take not just the power of each upgrade
 // But also the amount you have
+
 // FIXME you will want to make sure they gets called ANY time data changes, go through you functions and make sure this is called
 // where ever that happens.
-WidgetTemp += `<h5>PER MASK SOLD: ${(1 + (clickUpgrades[1].quantity) + (clickUpgrades[0].quantity*clickUpgrades[0].multiplier))}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${(autoUpgrades[0].quantity*autoUpgrades[0].multiplier)+(autoUpgrades[1].quantity*autoUpgrades[1].multiplier)}</h5>`
+
+WidgetTemp += `<h5>PER MASK SOLD: ${(1 + (clickUpgrades[1].quantity) + (clickUpgrades[0].quantity*clickUpgrades[0].multiplier))}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${((autoUpgrades[0].quantity*autoUpgrades[0].multiplier)*100)+((autoUpgrades[1].quantity*autoUpgrades[1].multiplier)*10)}</h5>`
 document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
 
@@ -132,26 +134,6 @@ function buyMatoran(){
     drawWidgets()
 }
 
-// FIXME Currently the this upgrade has no function in the game. Review this function as purchasing it does not actually benefit the player
-function matoranInt(){
-    let mat = autoUpgrades[1]
-    if (mat.quantity > 0) {
-        mat.multiplier++
-        widgets += 10*mat.multiplier
-        console.log('interval be intervaling')
-    }
-    drawWidgets()
-}
-
-function avInt(){
-    let av = autoUpgrades[0]
-    if (av.quantity > 0) {
-        multiplier++
-        widgets += 100*av.multiplier
-        console.log('av interval is also intervaling');
-    }
-    drawWidgets()
-}
 
 function buyAvMatoran(){
     let av = autoUpgrades[0]
@@ -166,6 +148,26 @@ if (widgets >= av.price) {
 }
 drawAv()
 drawWidgets()
+}
+// FIXME Currently the this upgrade has no function in the game. Review this function as purchasing it does not actually benefit the player
+function matoranInt(){
+    let mat = autoUpgrades[1]
+    if (mat.quantity > 0) {
+        // mat.multiplier++
+        widgets += 10*mat.multiplier
+        console.log('interval be intervaling')
+    }
+    drawWidgets()
+}
+
+function avInt(){
+    let av = autoUpgrades[0]
+    if (av.quantity > 0) {
+        // av.multiplier++
+        widgets += 100*av.multiplier
+        console.log('av interval is also intervaling');
+    }
+    drawWidgets()
 }
 
 function newWidgetCount(){
