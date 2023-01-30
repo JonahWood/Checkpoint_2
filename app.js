@@ -1,4 +1,4 @@
-let widgets = 100000
+let widgets = 0
 let clickUpgrades = [
     {
 name: 'furnace',
@@ -49,10 +49,10 @@ let WidgetTemp = ''
 // FIXME the logic here is showing some data but not the correct data for all instances of the upgrades
 // Look to zoo keeper and how a paycheck is generated to get a more accurate figure, you want to take not just the power of each upgrade
 // But also the amount you have
-
+// SECTION Fixed
 // FIXME you will want to make sure they gets called ANY time data changes, go through you functions and make sure this is called
 // where ever that happens.
-
+// SECTION Fixed
 WidgetTemp += `<h5>PER MASK SOLD: ${(1 + (clickUpgrades[1].quantity) + (clickUpgrades[0].quantity*clickUpgrades[0].multiplier))}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${((autoUpgrades[0].quantity*autoUpgrades[0].multiplier)*100)+((autoUpgrades[1].quantity*autoUpgrades[1].multiplier)*10)}</h5>`
 document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
@@ -150,6 +150,7 @@ drawAv()
 drawWidgets()
 }
 // FIXME Currently the this upgrade has no function in the game. Review this function as purchasing it does not actually benefit the player
+// SECTION Fixed
 function matoranInt(){
     let mat = autoUpgrades[1]
     if (mat.quantity > 0) {
