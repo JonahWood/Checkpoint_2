@@ -1,4 +1,4 @@
-let widgets = 0
+let widgets = 100000
 let clickUpgrades = [
     {
 name: 'furnace',
@@ -15,14 +15,14 @@ multiplier: 20,
 let autoUpgrades = [
     {
     name: 'avMatoran',
-    price: 1000,
+    price: 500000,
     quantity: 0,
-    multiplier: 5
+    multiplier: 0
     }, {
     name: 'matoran',
     price: 500,
     quantity: 0,
-    multiplier: 1
+    multiplier: 0
     }
 ]
 
@@ -46,7 +46,7 @@ function clickCounter(){
 // SECTION Draw functions
 function drawWidgets(){
 let WidgetTemp = ''
-WidgetTemp += ` <h1> WIDGETS: ${widgets} </h1> `
+WidgetTemp += `<h5>PER MASK SOLD: ${1 + (autoUpgrades[1].quantity + autoUpgrades[0].quantity*autoUpgrades[0].multiplier)}</h5> <h1> WIDGETS: ${widgets} </h1> <h5>PER MATORAN MADE MASK: ${(autoUpgrades[0].quantity*100)+(autoUpgrades[1].quantity*5)}</h5>`
 document.getElementById('WidgetTemp').innerHTML = WidgetTemp
 }
 
@@ -122,6 +122,7 @@ function buyMatoran(){
 function matoranInt(){
     let mat = autoUpgrades[1]
     if (mat.quantity > 0) {
+        mat.multiplier++
         widgets += 10*mat.multiplier
         console.log('interval be intervaling')
     }
@@ -145,10 +146,17 @@ drawWidgets()
 function avInt(){
     let av = autoUpgrades[0]
     if (av.quantity > 0) {
+        multiplier++
         widgets += 100*av.multiplier
         console.log('av interval is also intervaling');
     }
     drawWidgets()
+}
+
+function newWidgetCount(){
+    if (autoUpgrades[0].quantity > 1 || autoUpgrades[1].quantity >1) {
+        0
+    }
 }
 
 
